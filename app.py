@@ -54,6 +54,7 @@ def find_best_match(user_input):
 
     return best_match_index, best_similarity
 
+
 # Create a Streamlit web app
 def main():
     st.set_page_config(page_title="GSB", page_icon="Pic.png")
@@ -83,10 +84,21 @@ def main():
             if best_similarity >= threshold:
                 # If the similarity is above the threshold, provide the corresponding FAQ response
                 st.text_area("Laila: ", value=faq_responses[best_match_index], height=300)
+
             else:
                 # If no match is found above the threshold, generate a response using HuggingFaceHub
                 response = generate_response(user_input)
                 st.text_area("Laila_AI: ", value=response, height=300)
+
+            response = faq_responses[best_match_index]
+            if "Brochure_Page1:" in response and "Brochure_Page2:" in response:
+                # Extract the image URLs
+                image_url1 = response.split("Brochure_Page1:")[1].split(" ")[1]
+                image_url2 = response.split("Brochure_Page2:")[1].split(" ")[1]
+
+                # Display the images using st.image()
+                st.image(image_url1, width=500)
+                st.image(image_url2, width=500)
 
 
 if __name__ == "__main__":
