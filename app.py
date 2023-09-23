@@ -1,10 +1,9 @@
 import streamlit as st
 import os
+from fuzzywuzzy import fuzz  # Import fuzzywuzzy for fuzzy string matching
 from faq_gsb import faq_in, faq_out
-from langchain import HuggingFaceHub, PromptTemplate
+from langchain import HuggingFaceHub
 import spacy
-from sklearn.metrics.pairwise import cosine_similarity
-
 
 # Set the Hugging Face Hub API token as an environment variable
 os.environ['HUGGINGFACEHUB_API_TOKEN'] = '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'
@@ -17,19 +16,15 @@ conv_model = HuggingFaceHub(
 )
 
 template = """
-Act as I'm Laila, the GSB's AI Virtual Assistant
 {query}
 """
 
 # Define your FAQ entries and responses
 faq_entries = faq_in
-
 faq_responses = faq_out
-
 
 # Create a dictionary to store FAQ entries and responses
 faq_dict = dict(zip(faq_entries, faq_responses))
-
 
 # Load spaCy with word vectors (make sure to install and download the appropriate model)
 # python -m spacy download en_core_web_sm
@@ -45,6 +40,19 @@ def generate_response(user_input):
 
     return response
 
+
+# Define a function to find the FAQ entry with the highest similarity using fuzzy string matching
+def find_best_match(user_input):
+    best_match_index = -1
+    best_similarity = 0
+
+    for i, entry in enumerate(faq_entries):
+        similarity = fuzz.ratio(user_input, entry.lower())
+        if similarity > best_similarity:
+            best_similarity = similarity
+            best_match_index = i
+
+    return best_match_index, best_similarity
 
 # Create a Streamlit web app
 def main():
@@ -64,30 +72,19 @@ def main():
 
     if st.button("Submit"):
         if user_input:
-            user_input = user_input.lower()  # Convert user input to lowercase for easier matching
-            # Calculate the cosine similarity between user input and FAQ entries
-            similarities = []
-            for entry in faq_entries:
-                entry_doc = nlp(entry.lower())
-                user_doc = nlp(user_input)
-                similarity = cosine_similarity(
-                    [entry_doc.vector],
-                    [user_doc.vector]
-                )[0][0]
-                similarities.append(similarity)
+            user_input = user_input.lower()
 
-            # Find the FAQ entry with the highest similarity
-            max_similarity = max(similarities)
-            max_index = similarities.index(max_similarity)
+            # Find the best matching FAQ entry using fuzzy string matching
+            best_match_index, best_similarity = find_best_match(user_input)
 
-            # Define a threshold for considering a match
-            threshold = 0.5  # Adjust as needed
+            # Define a threshold for considering a match (adjust as needed)
+            threshold = 50  # You can change this threshold value based on your requirements
 
-            if max_similarity >= threshold:
+            if best_similarity >= threshold:
                 # If the similarity is above the threshold, provide the corresponding FAQ response
-                st.text_area("Laila: ", value=faq_responses[max_index], height=300)
+                st.text_area("Laila: ", value=faq_responses[best_match_index], height=300)
             else:
-                # If no match is found, generate a response using HuggingFaceHub
+                # If no match is found above the threshold, generate a response using HuggingFaceHub
                 response = generate_response(user_input)
                 st.text_area("Laila_AI: ", value=response, height=300)
 
