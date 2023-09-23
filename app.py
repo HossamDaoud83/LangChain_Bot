@@ -17,6 +17,7 @@ conv_model = HuggingFaceHub(
 )
 
 template = """
+Act as I'm Laila, the GSB's AI Virtual Assistant
 {query}
 """
 
