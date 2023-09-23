@@ -18,6 +18,7 @@ faq_in = [
 ]
 
 faq_out = [
+
     "I'm fine, thank you.",
     "I'm Laila, the GSB's AI Virtual Assistant.",
     "Graduate School of Business at The Arab Academy for Science, Technology and Maritime Transport (AASTMT)",
@@ -48,8 +49,10 @@ Admission Requirements:
 Admission Fees: $182
 Tuition Fees (per Term): 
 •  $1750 for Egyptians  or $2500 for non-Egyptians
-Brochure Page1: https://iili.io/HXFAoG4.png
-Brochure Page2: https://iili.io/HXFAfun.png""",
+
+Brochure_Page1: https://iili.io/HXFAoG4.png
+
+Brochure_Page2: https://iili.io/HXFAfun.png""",
 
     """Doctorate in Business Administration (DBA) The DBA is equivalent to a conventional Ph.D. and its designation 
     as a Doctorate of Business Administration signifies its focus on theoretical and applied knowledge of the 
@@ -68,7 +71,11 @@ Admission Requirements:
 Admission Fees: $232
 Tuition Fees (per Term): -
 •	$3033 for Egyptians or $5673 for non-Egyptians for Term-1, Term-2 and Term-3)
-•	$4023 for Egyptians or $7543 for non-Egyptians for Term-4, Term-5 and Term-6)""",
+•	$4023 for Egyptians or $7543 for non-Egyptians for Term-4, Term-5 and Term-6)
+
+Brochure_Page1: https://iili.io/HXFfgls.png
+
+Brochure_Page2: https://iili.io/HXFfkxI.png""",
 
     """Marywood MBA Dual Degree
 The student receives two MBA degrees: 
@@ -89,7 +96,11 @@ Admission Requirements:
 Admission Fees: $182
 
 Tuition Fees (per Term): 
-•  $2350 for Egyptians  or $3100 for non-Egyptians""",
+•  $2350 for Egyptians  or $3100 for non-Egyptians
+
+Brochure_Page1: https://iili.io/HXFWk8u.png
+
+Brochure_Page2: https://iili.io/HXFWvyb.png""",
 
     """Marywood PHD Dual Degree Students who enroll in the Marywood University PhD dual degree program will receive 
     two prestigious certificates upon completion:
@@ -113,7 +124,12 @@ Admission Requirements:
 Admission Fees: $232
 
 Tuition Fees (per Term): 
-•  $4033 for Egyptians  or $6673 for non-Egyptians""",
+•  $4033 for Egyptians  or $6673 for non-Egyptians
+
+Brochure_Page1: https://iili.io/HXFhzzv.png
+
+Brochure_Page2: https://iili.io/HXFh2sV.png""",
+
     """The Arab Academy for Science, Technology and Maritime Transport (AASTMT) Alexandria Main Branch""",
     # Add corresponding responses for each FAQ entry
 ]
