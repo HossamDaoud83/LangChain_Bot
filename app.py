@@ -32,7 +32,7 @@ faq_dict = dict(zip(faq_entries, faq_responses))
 
 # Load spaCy with word vectors (make sure to install and download the appropriate model)
 # python -m spacy download en_core_web_sm
-# nlp = spacy.load("en_core_web_sm")
+nlp = spacy.load("en_core_web_sm")
 
 
 # Define a function to generate a response using HuggingFaceHub
