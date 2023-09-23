@@ -47,7 +47,9 @@ Admission Requirements:
 
 Admission Fees: $182
 Tuition Fees (per Term): 
-•  $1750 for Egyptians  or $2500 for non-Egyptians""",
+•  $1750 for Egyptians  or $2500 for non-Egyptians
+Brochure Page1: https://iili.io/HXFAoG4.png
+Brochure Page2: https://iili.io/HXFAfun.png""",
 
     """Doctorate in Business Administration (DBA) The DBA is equivalent to a conventional Ph.D. and its designation 
     as a Doctorate of Business Administration signifies its focus on theoretical and applied knowledge of the 
