@@ -8,7 +8,7 @@ import spacy
 # Set the Hugging Face Hub API token as an environment variable
 os.environ['HUGGINGFACEHUB_API_TOKEN'] = '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'
 
-model_id = "gpt2-medium"
+model_id = "gpt2-large"
 conv_model = HuggingFaceHub(
     huggingfacehub_api_token=os.environ['HUGGINGFACEHUB_API_TOKEN'],
     repo_id=model_id,
