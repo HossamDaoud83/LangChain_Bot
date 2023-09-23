@@ -2,3 +2,4 @@ streamlit
 langchain
 spacy
 scikit-learn
+huggingface_hub
